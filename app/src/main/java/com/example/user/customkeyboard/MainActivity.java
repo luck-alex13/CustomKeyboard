@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.example.keycoderlib.KeyCoder;
+
 public class MainActivity extends AppCompatActivity {
 
     HexadecimalKeyboard keyboard;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        KeyCoder.generateKey();
     }
 
     @Override
