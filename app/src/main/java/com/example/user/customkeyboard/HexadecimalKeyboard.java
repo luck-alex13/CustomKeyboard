@@ -40,7 +40,7 @@ public class HexadecimalKeyboard {
 
             View focusCurrent = mHostActivity.getWindow().getCurrentFocus();
 
-            if (focusCurrent == null || focusCurrent.getClass() != EditText.class) return;
+            if (focusCurrent == null || focusCurrent.getClass() != AppCompatEditText.class) return;
 
             EditText edittext = (EditText) focusCurrent;
             Editable editable = edittext.getText();
@@ -60,10 +60,10 @@ public class HexadecimalKeyboard {
                     break;
 
 
-                case CodePoint:
-                    if (editable.toString().indexOf(",") != -1) {
-                        return;
-                    }
+                //case CodePoint:
+                //    if (editable.toString().indexOf(",") != -1) {
+                //        return;
+                //    }
                 default:
                     editable.insert(start, Character.toString((char) primaryCode));
                     break;
