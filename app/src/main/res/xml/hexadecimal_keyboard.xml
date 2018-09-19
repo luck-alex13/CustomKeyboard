@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.inputmethodservice.KeyboardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:horizontalGap="5dp"
-    android:verticalGap="5dp" >
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:keyWidth="100%p"
+    android:keyHeight="10%p">
 
     <Row >
         <Key android:codes="55"    android:keyLabel="7" android:keyEdgeFlags="left" android:horizontalGap="5%p" android:keyWidth="15%p" />
@@ -36,4 +36,4 @@
         <Key android:codes="-5" android:keyLabel="DEL" android:horizontalGap="10%p" android:keyWidth="20%p"  android:isRepeatable="true"/>
         <Key android:codes="-4" android:keyLabel="DONE" android:keyWidth="20%p" android:keyEdgeFlags="right"/>
     </Row>
-</android.inputmethodservice.KeyboardView>
+</Keyboard>
