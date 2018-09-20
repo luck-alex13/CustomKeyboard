@@ -10,7 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.example.keycoderlib.KeyCoder;
+import com.example.keycoder.KeyCoder;
+
 
 public class MainActivity extends AppCompatActivity {
 

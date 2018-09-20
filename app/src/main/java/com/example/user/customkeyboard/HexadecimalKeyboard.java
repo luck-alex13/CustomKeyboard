@@ -5,6 +5,7 @@ import android.graphics.Paint;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.InputType;
 import android.util.Log;
@@ -40,6 +41,7 @@ public class HexadecimalKeyboard {
 
             View focusCurrent = mHostActivity.getWindow().getCurrentFocus();
 
+            Log.d("LOG", "onKey() "+primaryCode);
             if (focusCurrent == null || focusCurrent.getClass() != AppCompatEditText.class) return;
 
             EditText edittext = (EditText) focusCurrent;
@@ -128,7 +130,7 @@ public class HexadecimalKeyboard {
      */
     public void showFloatKeyboard(View v) {
         mKeyboardView.setVisibility(View.VISIBLE);
-        //mKeyboardView.setEnabled(true);
+        mKeyboardView.setEnabled(true);
         if (v != null)
             ((InputMethodManager) mHostActivity.getSystemService(Activity.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
@@ -138,7 +140,7 @@ public class HexadecimalKeyboard {
      */
     public void hideKeyboard() {
         mKeyboardView.setVisibility(View.GONE);
-        //mKeyboardView.setEnabled(false);
+        mKeyboardView.setEnabled(false);
     }
 
     private void moveCursor(EditText edittext, MotionEvent event) {

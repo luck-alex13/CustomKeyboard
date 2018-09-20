@@ -1,1 +1,1 @@
-include ':app', ':keylib', ':keycoderlib'
+include ':app'
