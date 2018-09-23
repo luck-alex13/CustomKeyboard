@@ -36,7 +36,7 @@
     </Row>
     <Row>
         <Key android:codes="48"    android:keyLabel="0" android:horizontalGap="5%p" android:keyWidth="48%p" android:keyEdgeFlags="left" />
-        <Key android:codes="-5" android:keyLabel="DEL" android:horizontalGap="10%p" android:keyWidth="17.5%p"  android:isRepeatable="true"/>
-        <Key android:codes="-4" android:keyLabel="DONE" android:keyWidth="17.5%p" android:keyEdgeFlags="right"/>
+        <Key android:codes="-5" android:keyIcon="@drawable/ic_action_delete" android:horizontalGap="10%p" android:keyWidth="17.5%p"  android:isRepeatable="true"/>
+        <Key android:codes="-4" android:keyLabel="OK" android:keyWidth="17.5%p" android:keyEdgeFlags="right"/>
     </Row>
 </Keyboard>

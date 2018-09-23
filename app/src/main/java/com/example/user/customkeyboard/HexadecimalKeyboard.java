@@ -9,14 +9,11 @@ import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.InputType;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 public class HexadecimalKeyboard {
 
@@ -24,17 +21,6 @@ public class HexadecimalKeyboard {
     private AppCompatActivity mHostActivity;
 
     private KeyboardView.OnKeyboardActionListener mOnKeyboardActionListener = new KeyboardView.OnKeyboardActionListener() {
-
-        public final static int CodeDelete = -5,
-                CodeCancel = -3,
-                CodePoint = 44;
-        //public final static int CodePrev     = 55000;
-        //public final static int CodeAllLeft  = 55001;
-        //public final static int CodeLeft     = 55002;
-        //public final static int CodeRight    = 55003;
-        //public final static int CodeAllRight = 55004;
-        //public final static int CodeNext     = 55005;
-        //public final static int CodeClear    = 55006;
 
         @Override
         public void onKey(int primaryCode, int[] keyCodes) {
@@ -50,22 +36,17 @@ public class HexadecimalKeyboard {
             int start = edittext.getSelectionStart();
 
             switch (primaryCode) {
-
-                case CodeCancel:
+                case Keyboard.KEYCODE_CANCEL:
                     hideKeyboard();
                     break;
-
-                case CodeDelete:
+                case Keyboard.KEYCODE_DELETE:
                     if (editable != null && start > 0) {
                         editable.delete(start - 1, start);
                     }
                     break;
-
-
-                //case CodePoint:
-                //    if (editable.toString().indexOf(",") != -1) {
-                //        return;
-                //    }
+                case Keyboard.KEYCODE_DONE:
+                    hideKeyboard();
+                    break;
                 default:
                     editable.insert(start, Character.toString((char) primaryCode));
                     break;
@@ -105,13 +86,8 @@ public class HexadecimalKeyboard {
     public HexadecimalKeyboard(AppCompatActivity host) {
         Log.d("Keyboard", "FloatKeyboard");
         mHostActivity = host;
-        mKeyboardView = (KeyboardView) mHostActivity.findViewById(R.id.keyboard_view);
-//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//        //params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-//        params.gravity = Gravity.BOTTOM;
-//
-//
-//        mHostActivity.addContentView(mKeyboardView, params);
+        mKeyboardView = mHostActivity.findViewById(R.id.keyboard_view);
+
         mKeyboardView.setKeyboard(new Keyboard(mHostActivity, R.xml.hexadecimal_keyboard));
         mKeyboardView.setPreviewEnabled(true);
         mKeyboardView.setOnKeyboardActionListener(mOnKeyboardActionListener);
